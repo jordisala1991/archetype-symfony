@@ -1,0 +1,9 @@
+services:
+    runroom.admin_user.admin.user:
+        class: Runroom\AdminUserBundle\Admin\UserAdmin
+        public: true
+        arguments: [~, Runroom\AdminUserBundle\Entity\User, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: 'User' }
+        calls:
+            - { method: setUserManipulator, arguments: ['@Runroom\AdminUserBundle\Security\UserManipulator'] }

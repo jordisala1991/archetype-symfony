@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20190410165560 extends AbstractMigration
+final class Version20200217153039 extends AbstractMigration
 {
     public function getDescription(): string
     {
@@ -20,7 +20,7 @@ final class Version20190410165560 extends AbstractMigration
     public function up(Schema $schema): void
     {
         // this up() migration is auto-generated, please modify it to your needs
-        $this->addSql("INSERT INTO fos_user_user (username, username_canonical, email, email_canonical, enabled, salt, password, roles, created_at, updated_at) VALUES ('admin', 'admin', 'admin@symfony.local', 'runroom@runroom.com', 1, 'Jm20EnPsPVdrPG.6l.U5IOdYOZWSirX3r40pw4kpAko', '\$argon2id\$v=19\$m=65536,t=4,p=1\$yszqXGIYre2ajyy65+qlkw\$DYsEDLsYoNAw4c4zlcZHmZ8dUEvKQvLnOVn40oYqWlM', 'a:1:{i:0;s:16:\"ROLE_SUPER_ADMIN\";}', '2018-01-08 09:56:07', '2018-01-08 09:56:07')");
+        $this->addSql("INSERT INTO `user` (`id`, `email`, `roles`, `salt`, `password`, `created_at`, `last_login`, `enabled`) VALUES (1, 'admin@localhost', 'ROLE_SUPER_ADMIN', 'z4qaMW2ugKKSW6zSTMf9K3nmO9TEv8kmdg6Dlgx2UZQ=', '\$argon2id\$v=19\$m=65536,t=4,p=1\$CWbSiLmf//bU1vPpc5I+7g\$Y1MHwd2A0XEi4WiZBURD+k7kPdAJh/W8jlKj6tbWbPE', '2020-02-17 15:41:19', NULL, 1)");
 
         $this->addSql("INSERT INTO meta_information (id, route_name, route) values (1, 'Default', 'default')");
         $this->addSql("INSERT INTO meta_information (id, route_name, route) values (2, 'Not found', '')");

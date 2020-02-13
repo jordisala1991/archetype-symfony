@@ -1,0 +1,6 @@
+{% block user_roles_matrix_widget %}{% apply spaceless %}
+    {{ renderMatrix(form)|raw }}
+    <ul class="list-unstyled">
+        {{ renderRolesList(form)|raw }}
+    </ul>
+{% endapply %}{% endblock user_roles_matrix_widget %}

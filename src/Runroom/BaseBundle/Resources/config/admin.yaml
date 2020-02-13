@@ -26,12 +26,3 @@ services:
         arguments: [~, Runroom\BaseBundle\Entity\GalleryImage, Runroom\SortableBehaviorBundle\Controller\SortableAdminController]
         tags:
             - { name: sonata.admin, manager_type: orm, label: 'GalleryImage' }
-
-    runroom.base.admin.user:
-        class: Runroom\BaseBundle\Admin\UserAdmin
-        public: true
-        arguments: [~, Runroom\BaseBundle\Entity\User, ~]
-        calls:
-            - [setUserManager, ['@fos_user.user_manager']]
-        tags:
-            - { name: sonata.admin, manager_type: orm, label: 'User' }

@@ -1,0 +1,24 @@
+{% block user_block %}
+    {% set logout_path = path('admin_logout') %}
+
+    {% if is_granted('ROLE_PREVIOUS_ADMIN') %}
+        {% set logout_path = path('sonata_admin_dashboard', {
+            '_switch_user': '_exit'
+        }) %}
+    {% endif %}
+
+    <li class="user-footer">
+        <div class="pull-left">
+            <a href="{{ path('admin_runroom_adminuser_user_show', {id: app.user.id}) }}" class="btn btn-default btn-flat">
+                <i class="fa fa-user"></i>
+                {{ 'user_block_profile'|trans }}
+            </a>
+        </div>
+        <div class="pull-right">
+            <a href="{{ logout_path }}" class="btn btn-default btn-flat">
+                <i class="fa fa-sign-out fa-fw"></i>
+                {{ 'user_block_logout'|trans }}
+            </a>
+        </div>
+    </li>
+{% endblock %}

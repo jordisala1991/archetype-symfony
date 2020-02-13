@@ -1,0 +1,7 @@
+admin_login:
+    path: /login
+    controller: Runroom\AdminUserBundle\Controller\SecurityController::login
+
+admin_logout:
+    path: /logout
+    controller: Runroom\AdminUserBundle\Controller\SecurityController::logout

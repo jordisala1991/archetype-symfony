@@ -1,0 +1,17 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Runroom\AdminUserBundle\:
+        resource: ../../*
+
+    Runroom\AdminUserBundle\Controller\:
+        resource: ../../Controller
+        public: true
+        tags: [controller.service_arguments]
+
+    Runroom\AdminUserBundle\Security\RolesBuilder\SecurityRolesBuilder:
+        bind:
+            $rolesHierarchy: '%security.role_hierarchy.roles%'

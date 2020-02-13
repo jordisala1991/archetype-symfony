@@ -126,9 +126,6 @@
     "friendsofsymfony/ckeditor-bundle": {
         "version": "1.2.0"
     },
-    "friendsofsymfony/user-bundle": {
-        "version": "v2.1.2"
-    },
     "fzaninotto/faker": {
         "version": "v1.9.1"
     },
@@ -453,9 +450,6 @@
             "config/routes/sonata_media.yaml",
             "public/upload/media/.gitignore"
         ]
-    },
-    "sonata-project/user-bundle": {
-        "version": "4.5.1"
     },
     "stof/doctrine-extensions-bundle": {
         "version": "1.2",

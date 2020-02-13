@@ -68,3 +68,6 @@ contact:
         unread: "No leído"
         read: "Leído"
         processed: "Procesado"
+
+user_block_logout: Salir
+user_block_profile: Perfil

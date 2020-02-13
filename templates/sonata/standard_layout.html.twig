@@ -7,3 +7,16 @@
 
 {% block side_bar_after_nav_content %}
 {% endblock %}
+
+{% block sonata_top_nav_menu_user_block %}
+    <li class="dropdown user-menu">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+            <i class="fa fa-user fa-fw" aria-hidden="true"></i>
+            <span class="hidden-xs">{{ app.user.username }}</span>
+            <i class="fa fa-caret-down" aria-hidden="true"></i>
+        </a>
+        <ul class="dropdown-menu dropdown-user">
+            {% include get_global_template('user_block') %}
+        </ul>
+    </li>
+{% endblock %}

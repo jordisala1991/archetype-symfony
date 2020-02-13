@@ -4,14 +4,18 @@ sonata_admin:
     show_mosaic_button: false
     security:
         handler: sonata.admin.security.handler.role
+        role_admin: ROLE_ADMIN
+        role_super_admin: ROLE_SUPER_ADMIN
     templates:
         layout: sonata/standard_layout.html.twig
+        user_block: security/user_block.html.twig
     dashboard:
         groups:
             runroom:
                 label: Base
                 items:
                     - runroom.base.admin.meta_information
+                    - runroom.admin_user.admin.user
                     - runroom.static_page.admin.static_page
                     - runroom.translation.admin.translation
                     - runroom.redirection.admin.redirect
@@ -24,12 +28,6 @@ sonata_admin:
                     - archetype.demo.admin.book
                     - archetype.demo.admin.category
                     - archetype.demo.admin.contact
-            users:
-                label: Users
-                icon: <i class="fa fa-users"></i>
-                on_top: true
-                items:
-                    - sonata.user.admin.user
             media:
                 label: Media
                 icon: <i class="fa fa-photo"></i>
