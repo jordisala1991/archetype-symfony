@@ -1,6 +1,6 @@
 #!groovy
 
-PROJECT_NAME = env.JOB_NAME.replace('/' + env.JOB_BASE_NAME, '')
+PROJECT_NAME = env.JOB_NAME.replaceAll('/' + env.JOB_BASE_NAME, '')
 
 pipeline {
     agent {
@@ -15,12 +15,12 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh "composer install --prefer-dist --classmap-authoritative --no-progress --no-interaction"
+                sh 'composer install --prefer-dist --classmap-authoritative --no-progress --no-interaction'
             }
         }
         stage('Test') {
             steps {
-                sh "phpdbg -qrr ./vendor/bin/phpunit --log-junit coverage/unitreport.xml --coverage-html coverage"
+                sh 'phpdbg -qrr ./vendor/bin/phpunit --log-junit coverage/unitreport.xml --coverage-html coverage'
                 xunit([PHPUnit(
                     deleteOutputFiles: false,
                     failIfNotNew: false,
