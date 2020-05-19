@@ -1,0 +1,7 @@
+<!DOCTYPE html>
+
+{{ page.title }}
+{% for module in page.modules|filter(module => module.publish and module.isTranslated) %}
+{{ 'test'}}
+    {% include 'app/modules/frontend/' ~ constant('TYPE', module)  ~ '.html.twig' %}
+{% endfor %}

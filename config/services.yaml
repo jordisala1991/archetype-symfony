@@ -64,3 +64,31 @@ services:
             - [setUserManager, ['@fos_user.user_manager']]
         tags:
             - { name: sonata.admin, manager_type: orm, label: 'User' }
+
+    app.admin.module:
+        class: App\Admin\Module\ModuleAdmin
+        public: true
+        arguments: [~, App\Entity\Module\Module, Runroom\SortableBehaviorBundle\Controller\SortableAdminController]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: 'Module' }
+
+    app.admin.page:
+        class: App\Admin\PageAdmin
+        public: true
+        arguments: [~, App\Entity\Page, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: 'Page' }
+        calls:
+            - [addChild, ['@app.admin.module', 'page']]
+
+    app.admin.extension.wysiwyg_module:
+        class: App\Admin\Module\WysiwygModuleAdminExtension
+        tags:
+            - { name: sonata.admin.extension, target: app.admin.module }
+
+    app.admin.menu_item:
+        class: App\Admin\MenuItemAdmin
+        arguments: [~, App\Entity\MenuItem, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: MenuItem }
+        public: true

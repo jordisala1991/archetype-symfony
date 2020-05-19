@@ -70,3 +70,6 @@ contact:
         processed: "Processed"
 list:
     label__action: "Action"
+modules:
+    type:
+        wysiwyg: Módulo Wysiwyg

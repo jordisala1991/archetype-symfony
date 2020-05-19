@@ -1,3 +1,7 @@
+app_page:
+    path: /test/{slug}
+    controller: App\Controller\PageController::index
+
 archetype_demo:
     resource: '@ArchetypeDemoBundle/Resources/config/routing.yaml'
 
